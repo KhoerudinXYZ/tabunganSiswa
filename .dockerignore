@@ -1,0 +1,10 @@
+/node_modules
+/vendor
+.env
+.git
+.github
+/storage/*.key
+/bootstrap/cache/*
+/public/build
+Dockerfile
+.dockerignore
