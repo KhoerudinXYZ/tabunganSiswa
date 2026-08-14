@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(php artisan config:show app.name 2>&1)",
+      "PowerShell(php artisan migrate:status 2>&1)",
+      "PowerShell(php artisan route:list 2>&1)",
+      "PowerShell(& \"C:\\\\laragon\\\\bin\\\\mysql\\\\mysql-8.4.3-winx64\\\\bin\\\\mysql.exe\" -u root -e \"CREATE DATABASE IF NOT EXISTS tabungansiswa CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\" 2>&1)",
+      "PowerShell(php -r \"$pdo = new PDO\\('mysql:host=127.0.0.1;port=3306', 'root', ''\\); $pdo->exec\\('CREATE DATABASE IF NOT EXISTS tabungansiswa CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'\\); echo 'Database created/verified successfully.' . PHP_EOL;\")",
+      "PowerShell(php \"C:\\\\Users\\\\HYPEAM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--laragon-www-tabunganSiswa\\\\292330a1-28f0-4f66-a40d-60f29aa659b8\\\\scratchpad\\\\create_db.php\")",
+      "PowerShell(php artisan migrate --force 2>&1 | Select-Object -First 80)",
+      "PowerShell(php artisan db:seed --force 2>&1 | Select-Object -First 60)",
+      "PowerShell(Start-Process -FilePath \"php\" -ArgumentList \"artisan\",\"serve\",\"--port=8000\" -WindowStyle Hidden)",
+      "PowerShell(php artisan make:migration add_wali_kelas_id_to_kelas_table --table=kelas)",
+      "PowerShell(php artisan make:policy SiswaPolicy --model=Siswa)",
+      "PowerShell(php artisan make:policy TransaksiPolicy --model=Transaksi)",
+      "PowerShell(php artisan make:policy KelasPolicy --model=Kelas)",
+      "PowerShell(php artisan test tests/Feature/WaliKelasAuthorizationTest.php 2>&1 | Select-Object -First 150)",
+      "PowerShell(php artisan migrate --force 2>&1 | Select-Object -First 40)",
+      "PowerShell(php artisan db:seed --class=DatabaseSeeder --force 2>&1 | Select-Object -First 60)",
+      "PowerShell(php artisan migrate:fresh --seed --force 2>&1 | Select-Object -First 60)",
+      "PowerShell(php artisan make:migration add_reversal_columns_to_transaksis_table --table=transaksis)",
+      "PowerShell(php artisan migrate --force 2>&1 | Select-Object -First 30)",
+      "PowerShell(php artisan migrate:fresh --seed --force 2>&1)"
+    ]
+  }
+}
