@@ -9,6 +9,13 @@ RUN npm run build
 # --- Stage 2: PHP Application ---
 FROM serversideup/php:8.2-fpm-nginx
 
+# Switch to root to install php extensions
+USER root
+RUN install-php-extensions gd
+
+# Switch back to www-data
+USER www-data
+
 # Copy application files
 COPY --chown=www-data:www-data . /var/www/html
 
