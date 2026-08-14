@@ -22,5 +22,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::defaultView('pagination::default');
         Paginator::defaultSimpleView('pagination::simple-default');
+
+        if (config('app.env') === 'production') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
     }
 }
